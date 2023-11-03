@@ -11,13 +11,14 @@ class Solution {
             while(count++ < gas.length){ 
                 index = index % gas.length;
                 gasAmount += gas[index]; // 가스채우고
-                gasAmount -= cost[index]; // 다음칸으로 이동                
+                gasAmount -= cost[index]; // 다음칸으로 이동   
                 if( gasAmount >= 0 ){ // 지나감
                     index++;
                 }else{ // 못지나감
                     i = i + count - 1;
                     break;
-                }                
+                }
+                
             }
 
             if(count == gas.length+1){
