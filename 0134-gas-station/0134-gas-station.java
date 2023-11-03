@@ -9,23 +9,20 @@ class Solution {
             count = 0; // 5
             boolean tag = false;
             int index = i;
-            while(count < gas.length){ 
+            while(++count <= gas.length){ 
                 index = index % gas.length;
                 gasAmount += gas[index]; // 가스채우고
                 gasAmount -= cost[index]; // 다음칸으로 이동   
-                count++;
                 
                 if( gasAmount >= 0 ){ // 지나감
                     index++;
                 }else{ // 못지나감
                     i = i + count - 1;
-                    tag = false;
                     break;
                 }
-                tag= true;
             }
 
-            if(count == gas.length && tag){ // 6
+            if(count == gas.length+1){ // 6
                 return i;
             }
         }// for end
