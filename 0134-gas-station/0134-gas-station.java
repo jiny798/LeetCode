@@ -8,7 +8,7 @@ class Solution {
             int gasAmount = 0;
             count = 0; // 5
             int index = i;
-            while(count++ < gas.length){ 
+            while(++count <= gas.length){ 
                 index = index % gas.length;
                 gasAmount += gas[index]; // 가스채우고
                 gasAmount -= cost[index]; // 다음칸으로 이동   
