@@ -15,15 +15,9 @@ class Solution {
             if(map.get(sum - k) != null){
                 answer += map.get(sum-k).size();
             }
-            List<Integer> list;
-            if(map.get(sum) != null){
-                list = map.get(sum);
-                list.add(i);
-            }else{
-                list = new ArrayList<>();
-                list.add(i);
-            }
-            map.put(sum, list);
+            List<Integer> list = map.getOrDefault(sum, new ArrayList<>());
+            list.add(i);
+            map.put(sum,list);
         }
      
         
