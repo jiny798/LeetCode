@@ -6,13 +6,13 @@ class Solution {
     public int solution(String word, String[] pages) {
         Pattern homePattern = Pattern.compile("<meta property=\"og:url\" content=\"(\\S*)\"");
         Pattern urlPattern = Pattern.compile("<a href=\"https://(\\S*)\"");
-        Pattern wordPattern = Pattern.compile("((?i)"+word+")[^a-zA-Z]");        
+        Pattern wordPattern = Pattern.compile("(?<=[^a-zA-Z])(?i)"+word+"([^a-zA-Z])");        
         Map<String,WebPage> map = new HashMap<>();
         
-        Pattern wp = Pattern.compile("([^a-zA-Z])((?i)"+word+")([^a-zA-Z])");  
-        String stt = "muzimuzi \n";
+        Pattern wp = Pattern.compile("(?<=[^a-zA-Z])(?i)"+word+"([^a-zA-Z])");  
+        String stt = "9muzi9muzi9";
         Matcher w = wp.matcher(stt);
-        if(w.find()){
+        while(w.find()){
             System.out.println("찾음");
         }
         
