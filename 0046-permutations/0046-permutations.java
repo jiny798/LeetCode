@@ -10,7 +10,7 @@ class Solution {
     }
     
     public void BT(int index,List<Integer> list,int[] nums){
-        if(list.size() == nums.length){
+        if(index == nums.length){
             List<Integer> tmp = new ArrayList<>(list);
             answer.add(tmp);
             return;
