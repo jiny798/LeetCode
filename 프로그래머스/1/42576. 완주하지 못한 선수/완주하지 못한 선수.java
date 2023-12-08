@@ -3,23 +3,29 @@ import java.util.HashMap;
 import java.util.Map;
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        final String[] answer = new String[1];
-        Map<String,Integer> map = new HashMap<>();
-        Arrays.stream(participant).forEach((user)->{
-            if(map.get(user)==null){
-                map.put(user,1);
+        HashMap<String,Integer> map = new HashMap<>();
+        
+        for(String str : participant) {
+            if(map.get(str) == null){
+                map.put(str,1);
             }else{
-                map.put(user,map.get(user)+1);
+                map.put(str, map.get(str) + 1);
             }
-        });
-        Arrays.stream(completion).forEach((user)->{
-            map.put(user,map.get(user)-1);
-        });
-        map.forEach((user,i)->{
-            if(i>0){
-                answer[0] = user;
+        }
+        
+        for(String str : completion){
+            if(map.get(str) != null){
+                map.put(str, map.get(str) - 1);
             }
-        });
-        return answer[0]; 
+        }
+        
+        for(String str : participant) {
+            if(map.get(str) == 1){
+                return str;
+            }
+        }
+        
+        return "";
+        
     }
 }
