@@ -2,7 +2,7 @@ import java.util.*;
 class Solution {
     public static List<String> list;
     public static Map<Integer,String> map;
-    public static String input;
+    public static String input = "";
     public List<String> letterCombinations(String digits) {
         list = new ArrayList<>();
         map = new HashMap<>();
@@ -13,12 +13,14 @@ class Solution {
     }
     
     public void BT(int index, String str){
-        if(index == input.length()){
-            if(index == 0) return;
+        if(index == input.length()) {
+            if(str.equals("")) return;
             list.add(str);
             return;
         }      
-        String s = map.get(Character.getNumericValue(input.charAt(index))); // abc
+        int digit = Integer.parseInt(String.valueOf(input.charAt(index)));
+        String s = map.get(digit);
+        
         for(int i = 0 ; i < s.length() ; i++){
             BT(index+1, str + String.valueOf(s.charAt(i))); // a
         }               
